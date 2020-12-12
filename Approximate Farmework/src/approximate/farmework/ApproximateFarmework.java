@@ -21,11 +21,11 @@ public class ApproximateFarmework {
         
         //Importing the basic model
         MDPGraph g = new MDPGraph(10); 
-        g.transition(1, 0, 0.2, 'a'); 
-        g.transition(0, 2, 0.2, 'a'); 
-        g.transition(2, 1, 0.2, 'a'); 
-        g.transition(0, 3, 0.2, 'a'); 
-        g.transition(3, 4, 0.2, 'a'); 
+        g.transition(1, 0, 0.1, 'a'); 
+        g.transition(0, 2, 0.2, 'b'); 
+        g.transition(2, 1, 0.35, 'a'); 
+        g.transition(0, 3, 1, 'a'); 
+        g.transition(3, 4, 0.2, 'c'); 
   
         System.out.println("The list of SCCs are as follows:"); 
         g.SCC();
