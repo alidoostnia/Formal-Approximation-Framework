@@ -172,9 +172,9 @@ public class MDPGraph {
     
     void SCCPrint(){
         System.out.println("The ArrayList of the components are as follows:");
-        for(int i = 0; i < scc.size(); i++)
+        for(int i = 0; i < scc.size(); i++) 
         {
-        System.out.println(scc.get(i)[0] + "\t"+ scc.get(i)[1]+"\t"+ scc.get(i)[2]+"\t"+ scc.get(i)[3]);
+        System.out.println(scc.get(i)[0] + "\t"+ scc.get(i)[1]+"\t"+ scc.get(i)[2]+"\t"+ scc.get(i)[3]+"\t"+ scc.get(i)[4]);
         }
     }
     }
