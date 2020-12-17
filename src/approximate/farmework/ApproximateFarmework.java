@@ -27,7 +27,7 @@ public class ApproximateFarmework {
         g.transition(0, 3, 0.2, 'a'); 
         g.transition(3, 4, 0.2, 'a'); 
   
-        System.out.println("The list of SCCs are as follows:"); 
+        System.out.println("The list of SCCs are as follows:");  
         g.SCC();
         List tra = g.trans;
         g.TransPrint();
