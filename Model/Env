@@ -1,0 +1,32 @@
+//The model of the environment
+dtmc
+//global d:[0..100] init 0;
+//global obs:[0..2] init 0;//0=no obstacle, 1=obstacle, 2=partial obstacle 
+const double p1;
+const double p2;
+const int dist ;
+const int up; //upper bound of expansion
+
+
+
+module Env
+	d:[0..100] init 0;
+        obs:[0..up] init 0;
+	//[] d=0&obs=0->p1:(d'=1)&(obs'=0)+p2:(d'=1)&(obs'=1)+1-p1-p2:(d'=1)&(obs'=2);
+	
+	//[]d=1&obs=0->p1:(d'=2)&(obs'=0)+p2:(d'=2)&(obs'=1)+1-p1-p2:(d'=2)&(obs'=2);
+	//[]d=1&obs=1->p1:(d'=2)&(obs'=0)+p2:(d'=2)&(obs'=1)+1-p1-p2:(d'=2)&(obs'=2);
+	//[]d=1&obs=2->p1:(d'=2)&(obs'=0)+p2:(d'=2)&(obs'=1)+1-p1-p2:(d'=2)&(obs'=2);
+	
+	//[]d=2&obs=0->p1:(d'=3)&(obs'=0)+p2:(d'=3)&(obs'=1)+1-p1-p2:(d'=3)&(obs'=2);
+	//[]d=2&obs=1->p1:(d'=3)&(obs'=0)+p2:(d'=3)&(obs'=1)+1-p1-p2:(d'=3)&(obs'=2);
+	//[]d=2&obs=2->p1:(d'=3)&(obs'=0)+p2:(d'=3)&(obs'=1)+1-p1-p2:(d'=3)&(obs'=2);
+	
+	[]obs=0->p1:(obs'=obs+1)+p2:(obs'=obs+2)+1-p1-p2:(obs'=obs+3);
+	[]obs>0&obs*3+3<up&d<dist-5 ->p1:(obs'=obs*3+1)&(d'=d+5)+p2:(obs'=obs*3+2)&(d'=d+5)+1-p1-p2:(obs'=obs*3+3)&(d'=d+5);
+	//[]obs=1->p1:(obs'=0)+p2:(obs'=1)+1-p1-p2:(obs'=2);
+	//[]obs=2->p1:(obs'=0)+p2:(obs'=1)+1-p1-p2:(obs'=2);
+	//[serve]obs=1->p1:(obs'=0)+p2:(obs'=1)+1-p1-p2:(obs'=2);
+	//[serve]obs=2->p1:(obs'=0)+p2:(obs'=1)+1-p1-p2:(obs'=2);
+	//[]d<dist->(d'=d+1);
+endmodule

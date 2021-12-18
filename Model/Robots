@@ -1,0 +1,45 @@
+mdp
+const double p1;
+const double p2;
+const double p3;
+const double p4;
+const double p5;
+const double p6;
+const double p7;
+const double p8;
+const double p9;
+const double p10;
+const double p11;
+const double p12;
+const double p13;
+const int dist1;
+const int dist2;
+const int obs;
+
+module Monitor 
+	x:[0..2] init 0;//0=monitor, 1=detect, 2=update
+	[] x=0 -> p1:(x'=0)+1-p1:(x'=1);
+	[] x=1 -> p2:(x'=1)+p3:(x'=0)+1-p2-p3:(x'=2);
+	[] x=2 -> (x'=0);
+endmodule
+
+
+module Caterpillar 
+	y:[0..2] init 0;//0=standby, 1=handle, 2=remove
+	[] y=0 -> p4:(y'=0)+1-p4:(y'=1);
+	[] y=1 -> p5:(y'=1)+p6:(y'=0)+1-p5-p6:(y'=2);
+	[] y=2 -> p7:(y'=2)+1-p7:(y'=0);
+endmodule
+
+module Leader 
+	z:[0..3] init 0;//0=stop, 1=run, 2=e-stop, 3=reduce speed
+	d:[0..200] init 200;
+	[] z=0 -> p8:(z'=0)+1-p8:(z'=1);
+	[] z=1&(d<dist1)&(obs=1) -> (z'=2);
+	[] z=1&(dist1<d)&(d<dist2)&(obs=1) -> (z'=3);
+	[] z=1 -> p9:(z'=1)+1-p9:(z'=0);
+	[] z=2 -> p11:(z'=2)+1-p11:(z'=1);
+	[] z=3&d<dist1 -> (z'=2);
+	[] z=3&d>dist1&obs=1 -> (z'=3);
+	[] z=3 -> p10:(z'=1)+1-p10:(z'=0);
+endmodule

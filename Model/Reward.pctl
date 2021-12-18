@@ -1,0 +1,13 @@
+R{"general"}min=? [ "obstacle" & z=3 &d=5 ]
+
+// Safety Property
+Pmax=? [ F ("obstacle" U z=1) ]
+
+Pmax=? [ F ("obstacle" U ("emergency_stop" | "stop")) ]
+
+Pmax=? [ F ("partial_obstacle" U "reduce_speed") ]
+
+Pmax=? [ G ("obstacle" U ("emergency_stop" | "stop")) ]
+
+Pmax=? [ G ("partial_obstacle" U "reduce_speed") ]
+
