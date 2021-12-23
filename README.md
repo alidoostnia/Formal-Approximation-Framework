@@ -9,4 +9,4 @@ The framework includes three main functions in cooperation with PRISM model chec
 
 3- Scheduling algorithm: it prioritizes and schedules the most significant SCCs for update/re-approximation based on the comming changes. We have used the following project with a few custom changes: https://github.com/elzoughby/EDF-scheduling
 
-4- Verification engine: we use the Prism probabilistic model checker for verification engine. Each submodel that is subject to change, must be verified after updating of the parameters.
+4- Verification engine: we use the Prism probabilistic model checker for verification engine. Each submodel that is subject to change, must be verified after updating of the parameters. The Prism model-checker can be found via this link: https://www.prismmodelchecker.org/download.php
