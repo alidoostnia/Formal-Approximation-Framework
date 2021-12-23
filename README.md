@@ -10,3 +10,11 @@ The framework includes three main functions in cooperation with PRISM model chec
 3- Scheduling algorithm: it prioritizes and schedules the most significant SCCs for update/re-approximation based on the comming changes. We have used the following project with a few custom changes: https://github.com/elzoughby/EDF-scheduling
 
 4- Verification engine: we use the Prism probabilistic model checker for verification engine. Each submodel that is subject to change, must be verified after updating of the parameters. The Prism model-checker can be found via this link: https://www.prismmodelchecker.org/download.php
+
+# Model
+We have modeled a rescue robot team in PRISM style including three robot parts: leader, caterpillar and monitoring robots. They work together to carry a sensitive equipment to the target position. Also, we have modelled the environment that they work within that. You can find the models and formal properties via the Model directory. 
+
+# Results
+The processed data can be found via the Result Data directory. 
+
+
