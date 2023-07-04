@@ -15,6 +15,6 @@ The framework includes three main functions in cooperation with PRISM model chec
 We have modeled a rescue robot team in PRISM style including three robot parts: leader, caterpillar and monitoring robots. They work together to carry a sensitive equipment to the target position. Also, we have modelled the environment that they work within that. You can find the models and formal properties via the Model directory. 
 
 # Results
-The processed data can be found via the Result Data directory.
+The processed data can be found via the Result Data directory. More has yet to come!
 
 
